@@ -1,0 +1,28 @@
+[package]
+name = "otel_config_validator"
+description = "Releaser for otel_config_validator"
+version = "0.2.0"
+license = "Apache-2.0"
+repository = "https://github.com/open-telemetry/opentelemetry-configuration"
+homepage = "https://opentelemetry.io/"
+binaries = ["validator/otel_config_validator"]
+build-command = ["make", "validator"]
+
+# Config for 'cargo dist'
+[dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.14.1"
+# CI backends to support
+ci = "github"
+# The installers to generate for each app
+installers = ["shell", "powershell", "homebrew"]
+# A GitHub repo to push Homebrew formulas to
+tap = "open-telemetry/homebrew-tap"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "x86_64-pc-windows-msvc"]
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
+# Whether to install an updater program
+install-updater = false
