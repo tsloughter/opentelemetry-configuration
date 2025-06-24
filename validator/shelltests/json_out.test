@@ -6,3 +6,8 @@ jq '.file_format' out/out.json
 >>>
 "0.1"
 >>>= 0
+
+jq '.empty' out/out.json
+>>>
+null
+>>>= 0
